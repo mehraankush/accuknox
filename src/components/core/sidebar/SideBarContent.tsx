@@ -24,7 +24,7 @@ const SideBarContent = () => {
         }
     }, [categories,category]);
 
-    console.log(categories,"categories")
+    
 
     return (
 

@@ -4,6 +4,8 @@ import { z } from "zod"
 import { Captions, Code } from 'lucide-react'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useToast } from "@/components/ui/use-toast"
+
 
 import { formSchema } from '@/schema';
 import useDashboardStore from '@/store'
@@ -23,8 +25,9 @@ const InputForm = () => {
     const addWidget = useDashboardStore(state => state.addWidget);
     const searchParams = useSearchParams()
     const params = searchParams.get('category');
+    const { toast } = useToast()
 
-    if (!params) return;
+
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -37,6 +40,7 @@ const InputForm = () => {
     function onSubmit(values: z.infer<typeof formSchema>) {
         addWidget(params ?? 'CSPM', values)
         console.log(values)
+        form.reset();
     }
 
 
@@ -112,12 +116,18 @@ const InputForm = () => {
                             <p>Cancle</p>
                         </CustomButton>
                     </SheetClose>
-                    <CustomButton
-                        className='bg-blue-500 text-white'
-                        type='submit'
-                    >
-                        <p>Save</p>
-                    </CustomButton>
+                        <CustomButton
+                            className='bg-blue-500 text-white'
+                            type='submit'
+                            onClick={() => {
+                                toast({
+                                    title: "Widget Saved Successfully 🥳",
+                                    description: "Your widget has been saved successfully.",
+                                })
+                            }}
+                        >
+                            <p>Save</p>
+                        </CustomButton>
                 </SheetFooter>
 
             </form>

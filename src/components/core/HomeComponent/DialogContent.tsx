@@ -24,11 +24,13 @@ import {
 import useDashboardStore from '@/store'
 import CustomButton from '@/components/common/CustomBtn';
 import { categoryFormSchema } from '@/schema'
+import { useToast } from '@/components/ui/use-toast'
 
 
 const DialogContentComponent = () => {
 
-    const { addCategory } = useDashboardStore()
+    const { addCategory } = useDashboardStore();
+    const { toast } = useToast()
 
     const form = useForm<z.infer<typeof categoryFormSchema>>({
         resolver: zodResolver(categoryFormSchema),
@@ -55,7 +57,7 @@ const DialogContentComponent = () => {
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className='w-full mt-5 px-5'>
+                        className='w-full mt-5 px-5 space-y-5 p-5'>
 
                         <FormField
                             control={form.control}
@@ -117,18 +119,26 @@ const DialogContentComponent = () => {
                         />
 
 
-                        <DialogFooter className='flex w-full justify-end gap-2 mt-5'>
+                        <DialogFooter className='flex w-full justify-end gap-2 '>
                             <DialogClose asChild>
                                 <CustomButton>
                                     <p>Cancle</p>
                                 </CustomButton>
                             </DialogClose>
-                            <CustomButton
-                                className='bg-blue-500 text-white'
-                                type='submit'
-                            >
-                                <p>Save</p>
-                            </CustomButton>
+                            <DialogClose>
+                                <CustomButton
+                                    className='bg-blue-500 text-white'
+                                    type='submit'
+                                    onClick={() => {
+                                        toast({
+                                            title: "Category Saved Successfully 🥳",
+                                            description: "Your widget has been saved successfully.",
+                                        })
+                                    }}
+                                >
+                                    <p>Save</p>
+                                </CustomButton>
+                            </DialogClose>
                         </DialogFooter>
 
                     </form>

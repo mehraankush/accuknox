@@ -4,10 +4,9 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardHeader,
-    CardTitle,
 } from "@/components/ui/card"
 import { X } from 'lucide-react'
+import { ChartsComponent } from './CharsComponent'
 
 interface CustomCardProps {
     title?: string
@@ -46,12 +45,17 @@ const CustomCard: React.FC<CustomCardProps> = ({
                 children
             ) : (
                 <>
-                    <CardHeader>
-                        <CardTitle>{title}</CardTitle>
-                        <CardDescription>{description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <p>Card Content</p>
+                    <CardContent className='flex gap-1 items-center h-full'>
+                        <div className='h-full flex justify-center items-center'>
+                            <ChartsComponent />
+                        </div>
+                        <CardDescription
+                            className='flex flex-col gap-2'
+                        >
+                            <p className='font-semibold'>{title}</p>
+                            <p className='text-xs font-light'> {description}</p>
+
+                        </CardDescription>
                     </CardContent>
                 </>
             )}
