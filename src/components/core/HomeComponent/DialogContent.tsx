@@ -42,7 +42,7 @@ const DialogContentComponent = () => {
 
     function onSubmit(values: z.infer<typeof categoryFormSchema>) {
         // addCategory(params ?? 'CSPM', values)
-        console.log(values)
+        // console.log(values)
         addCategory(values.category, values.categoryDisplayName)
     }
 

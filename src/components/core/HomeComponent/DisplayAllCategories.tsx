@@ -13,7 +13,7 @@ const DisplayAllCategories = () => {
     const router = useRouter()
 
 
-    console.log("CATEGORIES", categories)
+    // console.log("CATEGORIES", categories)
 
     const handleRemoveWidget = (category: string, widgetTitle: string) => {
         removeWidget(category, widgetTitle);
@@ -35,8 +35,7 @@ const DisplayAllCategories = () => {
                         <div key={i} className='flex flex-col gap-2 mt-5 w-full '>
                             <p className="text-lg font-medium text-slate-600">{data.categoryDisplayName}</p>
                             <div className='flex gap-5  w-full'>
-
-                                <div className='grid  md:grid-cols-2 lg:grid-cols-3  border w-full border-black gap-5  pb-4'>
+                                <div className='grid  md:grid-cols-2 lg:grid-cols-3  w-full gap-5  pb-4'>
                                     {
                                         data.widgets.map((widget, i: number) => (
                                             <CustomCard

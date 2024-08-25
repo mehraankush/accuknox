@@ -39,7 +39,7 @@ const InputForm = () => {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         addWidget(params ?? 'CSPM', values)
-        console.log(values)
+        // console.log(values)
         form.reset();
     }
 
