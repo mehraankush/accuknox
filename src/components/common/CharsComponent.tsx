@@ -53,7 +53,7 @@ export function ChartsComponent() {
     return (
         <ChartContainer
             config={chartConfig}
-            className="mx-auto aspect-square h-[120px]"
+            className="mx-auto aspect-square h-[150px]"
         >
             <PieChart>
                 <ChartTooltip

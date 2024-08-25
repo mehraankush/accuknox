@@ -33,8 +33,8 @@ const DisplayAllCategories = () => {
                 {
                     displayWidgets.map((data, i) => (
                         <div key={i} className='flex flex-col gap-2 mt-5 w-full '>
-                            <p className="text-lg font-medium text-slate-600">{data.categoryDisplayName}</p>
-                            <div className='flex gap-5  w-full'>
+                            <p className="text-base font-medium text-slate-600">{data.categoryDisplayName}</p>
+                            <div className='flex gap-5 mt-2  w-full'>
                                 <div className='grid  md:grid-cols-2 lg:grid-cols-3  w-full gap-5  pb-4'>
                                     {
                                         data.widgets.map((widget, i: number) => (

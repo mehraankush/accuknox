@@ -23,7 +23,7 @@ const CustomSheet = ({
             <SheetContent className='min-w-[50vw]'>
                 <SheetHeader>
                     <SheetTitle>Add Widget</SheetTitle>
-                    <SheetDescription>
+                    <SheetDescription className='py-1'>
                         personalize your dashboard by adding the following widget
                     </SheetDescription>
 

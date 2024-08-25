@@ -29,7 +29,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
 
     return (
         <Card
-            className={`bg-white rounded-xl w-[350px] relative overflow-hidden p-2 h-[180px] ${className}`}
+            className={`bg-white rounded-xl w-[350px] relative overflow-hidden p-2 h-[180px] ${className} ${isHovered ? 'border border-blue-200' : ''}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -45,8 +45,8 @@ const CustomCard: React.FC<CustomCardProps> = ({
                 children
             ) : (
                 <>
-                    <CardContent className='flex gap-1 items-center h-full'>
-                        <div className='h-full flex justify-center items-center'>
+                        <CardContent className='flex gap-1 items-center h-full  p-0'>
+                            <div className='h-full flex justify-center items-center '>
                             <ChartsComponent />
                         </div>
                         <CardDescription

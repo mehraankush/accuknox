@@ -6,23 +6,23 @@ import CustomDIalog from './CustomDIalog'
 
 const InternalNavbar = () => {
     return (
-        <nav className="flex justify-between px-5 mt-5">
-            <p className='text-xl font-semibold text-slate-700'>CNNAP Dashboard</p>
+        <nav className="flex justify-between px-10 mt-5">
+            <p className='text-lg font-semibold text-slate-700'>CNNAP Dashboard</p>
             <div className="flex gap-2 items-center">
                 
                 <CustomDIalog>
                     <CustomButton
                         icon={Plus}
                     >
-                        <p>Add Category</p>
+                        <p className='text-xs'>Add Category</p>
                     </CustomButton>
                 </CustomDIalog>
                 
                 <CustomSheet>
                     <CustomButton
                         icon={Plus}
-                    >
-                        <p>Add Widget</p>
+                        >
+                        <p className='text-xs'>Add Widget</p>
                     </CustomButton>
                 </CustomSheet>
 
